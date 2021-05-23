@@ -1,11 +1,25 @@
 #include <iostream>
 
+void welcome(){
+
+    std::cout << ":::   :::  :::   ::::  ::    ::::  ::::::  ::   ::  ::::  \n";
+    std::cout << " :::  :::  :::   ::--  ::    ::    ::  ::  :: V ::  ::--  \n";
+    std::cout << "   :::   :::     ::::  ::::  ::::  ::::::  ::   ::  ::::  \n";
+}
+
 int main(){
+
+    for (int i = 0; i < 50; i++)
+    {
+        welcome();
+        system("cls");
+    }
 
     char answer;
     int pasillo;
     int verduras;
     char verdura[100];
+    char respuesta;
 
     do
     {
@@ -29,9 +43,11 @@ int main(){
         std::cout << "1. Verduras\n2. Carnes\n3. Frutas\n4. Pescado\n5. Dulces\n6. Juguetes";
         std::cout << "\n|||||||||||||\n";
 
+    Return:
+
         do
         {
-            std::cout << "\nA que pasillo quisiera ir primero?: ";
+            std::cout << "\nA que pasillo quisiera ir?: ";
             std::cin >> pasillo;
         } while ((pasillo != 1) && (pasillo != 2) && (pasillo != 3) && (pasillo != 4) && (pasillo != 5) && (pasillo != 6));
 
@@ -55,6 +71,22 @@ int main(){
             case 1:
                 std::cout << "Que verdura va a elegir?: ";
                 std::cin >> verdura;
+
+                do
+                {
+                    std::cout << "Entendido! Desea regresar a otro pasillo o solo comprar ese producto? (A.SI/ B.NO): ";
+                    std::cin >> respuesta;
+                } while ((respuesta != 'A') && (respuesta != 'B'));
+
+                if (respuesta == 'A')
+                {
+                    goto Return;
+                }
+                if (respuesta == 'B')
+                {
+                    std::cout << "Vuelva pronto!!!";
+                }               
+                
                 break;
             
             case 2:
