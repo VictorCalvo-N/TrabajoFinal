@@ -1,6 +1,6 @@
 #include <iostream>
 
-void welcome(){
+void welcome(){   //esta funion es para la interfaz del principio
 
     char ingresar;
 
@@ -14,10 +14,10 @@ void welcome(){
 
 }
 
-class Cliente
+class Cliente //creamos la clase cliente
 {
 private:
-    std::string name;
+    std::string name;     //estos dos son para guardar el nombre y apellido del cliente
     std::string surname;
 public:
     Cliente(std::string, std::string);
@@ -31,18 +31,18 @@ Cliente::Cliente(std::string _name, std::string _surname)
     surname = _surname;
 }
 
-void Cliente::comprarplus()
+void Cliente::comprarplus()  //en esta funcion colocamos que el cliente se ha registrado
 {
     std::cout << "Cliente: " << name << " " << surname << ". \n";
 }
 
-void productos(char);
+void productos(char);    //colocamos las funciones que creamos
 void opciones(int);
 void carrito(int, int);
 
 int main(){
 
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 20; i++)   //en esta parte de aqui son las veces que limpiara la ventana donde saldrá el mensaje de W E L C O M E, en el siguiente avance lo mejoraremos
     {
         welcome();
         system("cls");
@@ -57,12 +57,12 @@ int main(){
     //char verdura[100];
     //char respuesta;
 
-    std::cout << "Escriba su nombre: ";
+    std::cout << "Escriba su nombre: ";    //decimos que ingrese sus nombres y apellidos
     std::cin >> nombre;
     std::cout << "Escriba su apellido: ";
     std::cin >> apellido;
 
-    Cliente c1 = Cliente(nombre, apellido);
+    Cliente c1 = Cliente(nombre, apellido); //lo ponemos en un objeto cliente
 
     c1.comprarplus();
 
