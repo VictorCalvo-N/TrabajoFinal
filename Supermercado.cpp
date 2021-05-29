@@ -2,25 +2,85 @@
 
 void welcome(){
 
-    std::cout << ":::   :::  :::   ::::  ::    ::::  ::::::  ::   ::  ::::  \n";
-    std::cout << " :::  :::  :::   ::--  ::    ::    ::  ::  :: V ::  ::--  \n";
-    std::cout << "   :::   :::     ::::  ::::  ::::  ::::::  ::   ::  ::::  \n";
+    char ingresar;
+
+    std::cout << "====================================================================\n";
+    std::cout << "====================================================================\n";
+    std::cout << "||||  :::   :::  :::   ::::  ::    ::::  ::::::  ::   ::  ::::  ||||\n";
+    std::cout << "||||   :::  :::  :::   ::--  ::    ::    ::  ::  :: V ::  ::--  ||||\n";
+    std::cout << "||||     :::   :::     ::::  ::::  ::::  ::::::  ::   ::  ::::  ||||\n";
+    std::cout << "====================================================================\n";
+    std::cout << "====================================================================\n";
+
+}
+
+class Cliente
+{
+private:
+    std::string name;
+    std::string surname;
+public:
+    Cliente(std::string, std::string);
+    void comprarplus();
+    void comprarless();
+};
+
+Cliente::Cliente(std::string _name, std::string _surname)
+{
+    name = _name;
+    surname = _surname;
+}
+
+void Cliente::comprarplus()
+{
+    std::cout << "Mi nombre es " << name << " " << surname << " y he venido a comprar varias cosas.\n";
+}
+
+void Cliente::comprarless()
+{
+    std::cout << "Mi nombre es " << name << " " << surname << " y he venido a comprar pocas cosas.\n";
 }
 
 int main(){
 
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 20; i++)
     {
         welcome();
         system("cls");
     }
 
+    std::string nombre;
+    std::string apellido;
+    char respuesta0;
     char answer;
     int pasillo;
     int verduras;
     char verdura[100];
     char respuesta;
 
+    std::cout << "Escriba su nombre: ";
+    std::cin >> nombre;
+    std::cout << "Escriba su apellido: ";
+    std::cin >> apellido;
+
+    Cliente c1 = Cliente(nombre, apellido);
+
+    do
+    {
+        std::cout << "Buenos dias, cuantas cosas va a comprar?(A.Varias / B.pocas): ";
+        std::cin >> respuesta0;
+    } while ((respuesta0 != 'A') && (respuesta0 != 'B'));
+
+    if (respuesta0 == 'A')
+    {
+        c1.comprarplus();
+    }
+    if (respuesta0 == 'B')
+    {
+        c1.comprarless();
+    }
+    
+    /*
     do
     {
         std::cout << "Buenos dias, viene a comprar algo? (A. Buenos dias, si, vengo a comprar unas cosas para la semana./B. No, me equivoque de tienda, aios.): ";
@@ -80,7 +140,7 @@ int main(){
 
                 if (respuesta == 'A')
                 {
-                    goto Return;
+                    goto Return; 
                 }
                 if (respuesta == 'B')
                 {
@@ -142,7 +202,8 @@ int main(){
     if (answer == 'B')
     {
         std::cout << "Gracias, que tenga un buen dia.\n";
-    }   
+    }
+    */   
 
     system("pause");
     return 0;
